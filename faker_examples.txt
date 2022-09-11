@@ -1,0 +1,126 @@
+public static TestPerson randomPerson() {
+    Random random = new Random();
+
+    TestPerson randomPerson = new TestPerson();
+
+    PropertyMap pm = randomPerson.getPropertyMap();
+
+    Name fakeName = faker.name();
+
+    pm.put("firstName", fakeName.firstName());
+    pm.put("lastName", fakeName.lastName());
+    pm.put("email", faker.internet().emailAddress());
+
+    if (random.nextBoolean()) {
+      Business bInfo = faker.business();
+      pm.put("creditCard.Type", bInfo.creditCardType());
+      pm.put("creditCard.Number", bInfo.creditCardNumber());
+      pm.put("creditCard.Expiry", bInfo.creditCardExpiry());
+    }
+
+    return randomPerson;
+  }
+  
+  
+  public class TestWithFaker {
+      
+	  private static Faker faker;
+	  
+	  @BeforeAll
+	  static void setUpAll {faker = new Faker(new Locale("ru"));}
+	  
+	  @Test
+	  void shouldGenerateTestData() {
+	      String name = faker.name().fullName();
+		  String phone = faker.phoneNumber().phoneNumber();
+		  String cardNumber = fake.finance().creditCard(CreditCardType.MASTERCARD);
+		  printTestData(name, phone, cardNumber);
+	  }
+  }
+  
+  
+Абакан
+Анадырь
+Архангельск
+Астрахань
+Барнаул
+Белгород
+Биробиджан
+Благовещенск
+Брянск
+Великий Новгород
+Владивосток
+Владикавказ
+Владимир
+Волгоград
+Вологда
+Воронеж
+Горно-Алтайск
+Грозный
+Екатеринбург
+Иваново
+Ижевск
+Иркутск
+-Йошкар-Ола
+Казань
+Калининград
+Калуга
+Кемерово
+Киров
+Кострома
+Красногорск
+Краснодар
+Красноярск
+Курган
+Курск
+Кызыл
+Липецк
+Магадан
+Магас
+Майкоп
+Махачкала
+Москва
+Мурманск
+Нальчик
+Нарьян-Мар
+Нижний Новгород
+Новосибирск
+Омск
+Орёл
+Оренбург
+Пенза
+Пермь
+Петрозаводск
+Петропавловск-Камчатский
+Псков
+Ростов-на-Дону
+Рязань
+Салехард
+Самара
+Санкт-Петербург
+Саранск
+Саратов
+Севастополь
+Симферополь
+Смоленск
+Ставрополь
+Сыктывкар
+Тамбов
+Тверь
+Томск
+Тула
+Тюмень
+Улан-Удэ
+Ульяновск
+Уфа
+Хабаровск
+Ханты-Мансийск
+Чебоксары
+Челябинск
+Черкесск
+Чита
+Элиста
+Южно-Сахалинск
+Якутск
+Ярославль
+  
